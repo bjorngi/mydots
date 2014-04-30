@@ -15,10 +15,42 @@ beautiful = require("beautiful")
 naughty = require("naughty")
 menubar = require("menubar")
 
+
+local awmodoro  = require("awmodoro")
+
+--pomodoro wibox
+pomowibox = awful.wibox({ position = "top", screen = 1, height=4})
+pomowibox.visible = false
+local pomodoro = awmodoro.new({
+        minutes             = 25,
+        do_notify           = true,
+        active_bg_color     = '#313131',
+        paused_bg_color     = '#7746D7',
+        fg_color            = {type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"},{0.5, "#88A175"},{1, "#FF5656"}}},
+        width               = pomowibox.width,
+        height              = pomowibox.height, 
+
+        begin_callback = function()
+        for s = 1, screen.count() do
+        mywibox[s].visible = false
+        end
+        pomowibox.visible = true
+        end,
+
+        finish_callback = function()
+        for s = 1, screen.count() do
+        mywibox[s].visible = true
+        end
+        pomowibox.visible = false
+        end})
+pomowibox:set_widget(pomodoro)
+
+
+
 --{{---| Font |-----------------------------------------------------------------
 awesome.font = "Soruce Code Pro 10"
 
---{{---| Java GUI's fix |-------------------------------------------------------
+
 
 --awful.util.spawn_with_shell("wmname LG3D")
 --{{---| Error handling |-------------------------------------------------------
@@ -43,7 +75,7 @@ end
 
 --{{---| Theme |------------------------------------------------------------------------------------
 
-config_dir = ("/home/bjorn/.config/awesome/")
+config_dir = (".config/awesome/")
 themes_dir = (config_dir .. "/themes")
 beautiful.init(themes_dir .. "/powerarrow/theme.lua")
 if beautiful.wallpaper then
@@ -63,6 +95,9 @@ calendar       = "urxvt -T 'calendar' -hold -geometry 21x9-5+20 -e cal"
 editor         = os.getenv("EDITOR") or "vim"
 editor_cmd     = terminal .. " -e " .. editor
 browser        = "google-chrome-stable"
+altkey         = "Mod1"
+filesystem     = "urxvt -e 'ranger'"
+graphics       = "inkscape"
 
 
 --{{---| Table of layouts |-------------------------------------------------------------------------
@@ -160,7 +195,7 @@ function () awful.util.spawn_with_shell(diskusage) end)))
 --{{---| Battery widget |---------------------------------------------------------------------------
 
 batwidget = wibox.widget.textbox()
-vicious.register(batwidget, vicious.widgets.bat, '<span background="'..orange..'" font="Soruce Code Pro 12"> <span font="Soruce Code Pro 10" color="'..base2..'">$1 $2% <span color="'..cyan..'" font="Soruce Code Pro 12">'..larrow..'</span></span></span>', 5, 'BAT0')
+vicious.register(batwidget, vicious.widgets.bat, '<span background="'..base03..'" font="Soruce Code Pro 12"> <span font="Soruce Code Pro 10" color="'..base1..'">$1 $2% <span color="'..cyan..'" font="Soruce Code Pro 12"></span></span></span>', 5, 'BAT0')
 
 --{{---| MEM widget |-------------------------------------------------------------------------------
 
@@ -256,7 +291,7 @@ for s = 1, screen.count() do
     --right_layout:add(fswidget)
 
     --right_layout:add(baticon)
-    --right_layout:add(batwidget)
+    right_layout:add(batwidget)
 
     -- network
     --right_layout:add(neticon)
@@ -302,13 +337,45 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab", function () awful.client.focus.history.previous()
         if client.focus then client.focus:raise() end end),
+    -- Awmodoro
+    awful.key({ modkey, }, "F12", function () pomodoro:toggle() end),
+    awful.key({ modkey, "Control" }, "F12", function () pomodoro:finish() end),
+
 
 --{{---| Hotkeys |--------------------------------------------------------------
+
+    -- ALSA volume control
+    awful.key({ altkey }, "Up",
+        function ()
+            awful.util.spawn("amixer -q set Master 1%+")
+        end),
+    awful.key({ altkey }, "Down",
+        function ()
+            awful.util.spawn("amixer -q set Master 1%-")
+        end),
+    awful.key({ altkey }, "m",
+        function ()
+            awful.util.spawn("amixer -q set Master playback toggle")
+        end),
+    awful.key({ altkey, "Control" }, "m",
+        function ()
+            awful.util.spawn("amixer -q set Master playback 100%")
+        end),
+
+    -- User programs
+    awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
+    awful.key({ modkey }, "i", function () awful.util.spawn(filesystem) end),
+    awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
+    awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
+
+    awful.key({ }, "XF86Launch1", function () awful.util.spawn("slimlock") end),
+
+
 
 --{{---| Terminals, shells und multiplexors |-----------------------------------
                                                                                                         --
 --awful.key({ modkey },            "a",        function () awful.util.spawn_with_shell(configuration) end), --
---awful.key({        },            "Menu",     function () awful.util.spawn(ttmux) end),                    --
+--awful.key({ modkey, },            "a",     function () awful.util.spawn(ttmux) end),                    --
 awful.key({ modkey,           }, "Return",   function () awful.util.spawn(terminal) end),                 --
 ----{{--------------------------------------------------------------------------
 awful.key({ modkey, "Control" }, "r",        awesome.restart),
@@ -358,8 +425,8 @@ awful.key({ modkey, "Shift"   }, "space",    function () awful.layout.inc(layout
 
 clientkeys = awful.util.table.join(
 awful.key({ modkey,           }, "f",        function (c) c.fullscreen = not c.fullscreen  end),
-awful.key({ modkey,           }, "c",        function (c) c:kill()                         end),
- -- awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
+awful.key({ modkey, "Shift"          }, "c",        function (c) c:kill()                         end),
+awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
 awful.key({ modkey, "Control" }, "Return",   function (c) c:swap(awful.client.getmaster()) end),
 awful.key({ modkey,           }, "o",        awful.client.movetoscreen                        ),
 awful.key({ modkey, "Shift"   }, "r",        function (c) c:redraw()                       end),
@@ -402,6 +469,7 @@ awful.rules.rules = {
     buttons = clientbuttons } },
     { rule = { class = "gimp" },
     properties = { floating = true } },
+
 }
 
 --{{---| Signals |----------------------------------------------------------------------------------
