@@ -50,7 +50,6 @@ set undofile
 set undodir=~/.vimundo " make ~/.vimundo to store undo history
 colorscheme solarized
 filetype indent on
-set shell=bash\ -i
 
 " javascript
 
