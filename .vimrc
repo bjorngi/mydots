@@ -27,7 +27,9 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'codeape2/vim-multiple-monitors'
 Plugin 'pangloss/vim-javascript'
 Plugin 'lervag/vim-latex'
-
+Plugin 'tpope/vim-markdown'
+" https://github.com/greyblake/vim-preview
+let g:PreviewBrowsers='google-chrome-beta'
 
 call vundle#end()
 " General
@@ -44,8 +46,11 @@ set smartcase
 set background=dark
 set autoindent
 set shiftwidth=2
+set undofile
+set undodir=~/.vimundo " make ~/.vimundo to store undo history
 colorscheme solarized
 filetype indent on
+set shell=bash\ -i
 
 " javascript
 
@@ -62,6 +67,8 @@ nmap <Leader>b  :TagbarToggle<CR>
 map <F12> :noh<CR>
 map <F7> :Gstatus<CR>
 map <F8> :Gdiff<CR>
+map <F9> :Gpull<CR>
+map <F10> :Gpush<CR>
 
 " Tab management
 nnoremap <F6> :tabnew<CR>
@@ -74,10 +81,11 @@ nnoremap <F5> 5gt
 nnoremap <leader>u :GundoToggle<CR>
 
 " Easier movement between windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+
 set splitbelow
 set splitright
 " Window close and rotate
@@ -161,8 +169,16 @@ au FileType tex nmap <Leader>r :w <CR> :!pdflatex -synctex=1 --shell-escape  -in
 "Spelling
 autocmd FileType gitcommit setlocal spell
 autocmd FileType tex setlocal spell
+autocmd FileType md setlocal spell
+
+" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 nmap <left>  [s
 nmap <right> ]s
 nmap <up>    z=<CR>1<CR>
 nmap <down>  z=
+
+
+" EasyMotion
+"nnoremap <Leader><Leader> <Plug>(easymotion-w)
