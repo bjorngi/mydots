@@ -23,7 +23,7 @@ URxvt.fading:               15
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
-URxvt.saveLines:            50
+URxvt.saveLines:            30000
 URxvt.internalBorder:       0
 URxvt.lineSpace:            0
 
@@ -31,8 +31,8 @@ URxvt.lineSpace:            0
 URxvt.allow_bold:           true
 /* URxvt.font:
    -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt.font: xft:Source Code Pro:size=9
-URxvt*boldFont: xft:Source Code Pro:bold:size=9
+URxvt.font: xft:Inconsolata-g for Powerline:size=9
+URxvt*boldFont: xft:Inconsolata-g for Powerline:semibold:size=9
 
 ! Fix font space
 URxvt*letterSpace: -1
