@@ -1,10 +1,5 @@
-<link href="github.css" rel="stylesheet"></link>
-mydots
-======
-
-
 VIM
------
+====
 
 ### Keyboard shortcuts
 `<Leader>` space
