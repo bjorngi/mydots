@@ -1,0 +1,3 @@
+Move themes to /usr/share/slim to overwrite current themes or move content of the themes-folder to /usr/share/slim/themes to add them.
+
+Move slim.conf to /etc/ to overwrite current slim.conf
