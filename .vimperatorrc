@@ -1,0 +1,72 @@
+set gui=none,tabs
+set hintchars=asdfghjkl
+highlight Hint font-size:75%;color:white;background-color:blue;padding:2px;
+
+" Simulate CTRL-A
+inoremap <C-a> <C-Home><C-S-End>
+
+" Autocomplete using Firefox Awesomebar subsystem
+set complete=sl
+
+set editor='urxvt -e vim -X'
+set animations
+
+
+" leader key
+map , <Leader>
+
+" keybindings
+map <Leader>d :downloads<CR>
+
+" bookmark open
+map <Leader>a :bmarks! -T arch<CR>
+
+" toggle tabline
+map <C-h> :set gui=tabs<CR>
+map <C-l> :set gui=notabs<CR>
+
+" faster scrolling
+nnoremap h 5h
+nnoremap j 5j
+nnoremap k 5k
+nnoremap l 5l
+
+" map K and J to next and prev tab
+nmap K :tn<CR>
+nmap J :tp<CR>
+
+" view native size of image without clicking it
+nmap <Leader>z :js window.content.document.toggleImageSize();<CR>
+
+
+"javascript to hide statusbar
+noremap <silent> <F8> :js toggle_bottombar()<CR>
+noremap : :js toggle_bottombar('on')<CR>:
+noremap o :js toggle_bottombar('on')<CR>o
+noremap O :js toggle_bottombar('on')<CR>O
+noremap t :js toggle_bottombar('on')<CR>t
+noremap T :js toggle_bottombar('on')<CR>t
+noremap / :js toggle_bottombar('on')<CR>/
+cnoremap <CR> <CR>:js toggle_bottombar('off')<CR>
+cnoremap <Esc> <Esc>:js toggle_bottombar('off')<CR>
+
+:js << EOF
+function toggle_bottombar(p) {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    if (p == 'on'){
+        bb.style.height = '';
+        bb.style.overflow = '';
+        return;
+    }
+    if (p == 'off'){
+        bb.style.height = '0px';
+        bb.style.overflow = 'hidden';
+        return;
+    }
+    bb.style.height = (bb.style.height == '') ? '0px' : '';
+    bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
+}
+toggle_bottombar();
+EOF
