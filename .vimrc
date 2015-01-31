@@ -28,7 +28,13 @@ Plugin 'codeape2/vim-multiple-monitors'
 Plugin 'pangloss/vim-javascript'
 Plugin 'lervag/vim-latex'
 Plugin 'tpope/vim-markdown'
+Plugin 'jaxbot/github-issues.vim'
 " https://github.com/greyblake/vim-preview
+Plugin 'klen/python-mode'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'https://github.com/mxw/vim-jsx'
+
 let g:PreviewBrowsers='google-chrome-beta'
 
 call vundle#end()
@@ -45,13 +51,15 @@ set ignorecase
 set smartcase
 set background=dark
 set autoindent
-set shiftwidth=2
+set shiftwidth=4
 set undofile
 set undodir=~/.vimundo " make ~/.vimundo to store undo history
+set nowritebackup
 colorscheme solarized
 filetype indent on
 
 " javascript
+
 
 
 " move vertically by visual line
@@ -68,6 +76,7 @@ map <F7> :Gstatus<CR>
 map <F8> :Gdiff<CR>
 map <F9> :Gpull<CR>
 map <F10> :Gpush<CR>
+map <F11> :Gissues<CR>
 
 " Tab management
 nnoremap <F6> :tabnew<CR>
@@ -161,6 +170,9 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
 
+" Typing
+au BufRead,BufNewFile *.txt,*.tex set wrap linebreak nolist textwidth=100 wrapmargin=10
+
 " Latex
 let g:latex_indent_enabled = 1
 au FileType tex nmap <Leader>r :w <CR> :!pdflatex -synctex=1 --shell-escape  -interaction=nonstopmode % <CR>
@@ -169,15 +181,27 @@ au FileType tex nmap <Leader>r :w <CR> :!pdflatex -synctex=1 --shell-escape  -in
 autocmd FileType gitcommit setlocal spell
 autocmd FileType tex setlocal spell
 autocmd FileType md setlocal spell
+autocmd BufNewFile,BufReadPost *.com.tmp setlocal spell
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 nmap <left>  [s
 nmap <right> ]s
-nmap <up>    z=<CR>1<CR>
+nmap <up>    1z=
 nmap <down>  z=
 
 
 " EasyMotion
-"nnoremap <Leader><Leader> <Plug>(easymotion-w)
+nnoremap <Leader>i <Plug>(easymotion-w)
+
+" Python
+let g:pymode_folding = 0
+let g:pep8_ignore="F403,E713,E266"
+
+
+" gVIM stuff
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
