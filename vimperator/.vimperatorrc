@@ -21,10 +21,6 @@ map <Leader>d :downloads<CR>
 " bookmark open
 map <Leader>a :bmarks! -T arch<CR>
 
-" toggle tabline
-map <C-h> :set gui=tabs<CR>
-map <C-l> :set gui=notabs<CR>
-
 " faster scrolling
 nnoremap h 5h
 nnoremap j 5j
