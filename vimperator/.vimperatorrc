@@ -31,9 +31,8 @@ nnoremap j 5j
 nnoremap k 5k
 nnoremap l 5l
 
-" map K and J to next and prev tab
-nmap K :tn<CR>
-nmap J :tp<CR>
+nmap <A-j> :set! extensions.treestyletab.tabbar.autoHide.mode=2<CR>
+nmap <A-k> :set! extensions.treestyletab.tabbar.autoHide.mode=1<CR>
 
 " view native size of image without clicking it
 nmap <Leader>z :js window.content.document.toggleImageSize();<CR>
