@@ -181,7 +181,7 @@ au FileType tex nmap <Leader>r :w <CR> :!pdflatex -synctex=1 --shell-escape  -in
 autocmd FileType gitcommit setlocal spell
 autocmd FileType tex setlocal spell
 autocmd FileType md setlocal spell
-autocmd BufNewFile,BufReadPost *.com.tmp setlocal spell
+autocmd BufNewFile,BufReadPost *.tmp setlocal spell
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
