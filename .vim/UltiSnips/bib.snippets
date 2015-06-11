@@ -1,0 +1,40 @@
+snippet web "Website" b
+@misc{$1,
+  title = "$2",
+  author = "$3",
+  howpublished = "\url{$4 }",
+	year = "$5",
+	month = "$6",
+  note = "Accessed: `!v strftime("%Y-%m-%d")`"
+}
+$0
+endsnippet
+
+snippet article "Article" b
+@article{$1,
+  author = "$2",
+  title = "$3",
+  pages = "$4"
+}
+$0
+endsnippet
+
+snippet phd "Ph. D" b
+@phdthesis{$1,
+  author = "$2",
+  title = "$3",
+  school = "$4",
+  year = "$5"
+}
+$0
+endsnippet
+
+snippet book "Book" b
+@book{$1,
+	author ="$2",
+	title = "$3",
+	year = "$4",
+	publisher = "$5",
+}
+$0
+endsnippet

@@ -1,0 +1,267 @@
+snippet doc "Simple document" b
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}                             % English language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype}  
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx} 
+\usepackage[]{url}
+\usepackage{parskip}
+\usepackage{caption}
+
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}                      % No page header
+\fancyfoot[L]{}                     % Empty 
+\fancyfoot[C]{}                     % Empty
+\fancyfoot[R]{\thepage}                 % Pagenumbering
+\renewcommand{\headrulewidth}{0pt}      % Remove header underlines
+\renewcommand{\footrulewidth}{0pt}        % Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}    % Equationnumbering: section.eq#
+\numberwithin{figure}{section}      % Figurenumbering: section.fig#
+\numberwithin{table}{section}       % Tablenumbering: section.tab#
+
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}   % Horizontal rule
+
+\title{
+        \usefont{OT1}{bch}{b}{n}
+        \normalfont \normalsize \textsc{${1:Høgskolen i Sør-Trøndelag}} \\\\ [25pt]
+				% Project name
+        \horrule{0.5pt} \\\\[0.4cm]
+        \huge ${2:title} \\\\
+        \horrule{2pt} \\\[0.5cm]
+}
+\author{
+        \normalfont                 \normalsize
+        Bjørn Gilstad\\\\[-3pt]    \normalsize
+        \today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document}
+\maketitle
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{$3}
+$0
+
+
+\end{document}
+
+endsnippet
+
+snippet sec "Section" b
+\section{$1}
+\label{sec:$1}
+$0
+endsnippet
+
+snippet ssec "Sub-section" b
+\subsection{$1}
+\label{sec:$1}
+$0
+endsnippet
+
+snippet sec* "Section" b
+\section*{$1}
+$0
+endsnippet
+
+snippet li "Alfanumeric list" b
+\begin{enumerate}[label=(\alph*)]
+		\item $0
+\end{enumerate}
+endsnippet
+
+snippet li "Numbered list" b
+\begin{enumerate}
+		\item $1
+		$0
+\end{enumerate}
+endsnippet
+
+snippet dec "Description" b
+\begin{description}
+	\item{$1}
+	$0
+\end{descrption}
+endsnippet
+
+snippet it "Item" b
+\item[$2] $1
+$0
+endsnippet
+
+snippet fig "Insert figure" b
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=${1:0.5}\textwidth]{$2}
+    \caption{$3}
+    \label{fig:$2}
+\end{figure}
+$0
+endsnippet
+
+snippet fig "Non floating figure" b
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{
+  \includegraphics[keepaspectratio=true,width=${1:0.5}\textwidth]{$2}}
+\captionof{figure}{$3}\label{$2}
+\end{minipage}
+endsnippet
+
+snippet fig "Wrapped figure" b
+\begin{wrapfigure}{${1:r}}{${2:0.25}\textwidth}
+    \centering
+    \includegraphics[width=$2\textwidth]{$3}
+    \caption{$4}
+    \label{fig:$3}
+\end{wrapfigure}
+$0
+endsnippet
+
+snippet pack "usepackege" b
+\usepackage[$1]{$0}
+endsnippet
+
+snippet doc "Report" b
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}                             % English language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype}  
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx} 
+\usepackage[]{url}
+\usepackage{parskip}
+\usepackege{caption}
+
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}                      % No page header
+\fancyfoot[L]{}                     % Empty 
+\fancyfoot[C]{}                     % Empty
+\fancyfoot[R]{\thepage}                 % Pagenumbering
+\renewcommand{\headrulewidth}{0pt}      % Remove header underlines
+\renewcommand{\footrulewidth}{0pt}        % Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}    % Equationnumbering: section.eq#
+\numberwithin{figure}{section}      % Figurenumbering: section.fig#
+\numberwithin{table}{section}       % Tablenumbering: section.tab#
+
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}   % Horizontal rule
+
+\title{
+        \vspace{5em}  
+        \usefont{OT1}{bch}{b}{n}
+        \normalfont \normalsize \textsc{Høgskolen i Sør-Trøndelag} \\\\ [25pt]
+				% Project name
+        \horrule{0.5pt} \\\\[0.4cm]
+        \huge ${2:title} \\\\
+        \horrule{2pt} \\\[0.5cm]
+}
+\author{
+        \normalfont                 \normalsize
+        Bjørn Gilstad\\\\[-3pt]    \normalsize
+        \today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document}
+\pagenumbering{empty}
+\maketitle
+\clearpage
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{$3}
+$0
+
+
+\end{document}
+endsnippet
+
+snippet up "Use package" b
+\usepackage[$2]{$1}
+$0
+endsnippet
+
+snippet desc "Description" b
+\begin{description}
+	\item[$1] $2
+	$0
+\end{descrption}     
+endsnippet
+
+snippet ucd "Use Case description" b
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|l|p{10cm}|}
+\hline
+Use case & $1 \\\ \hline
+User & ${2:Resident} \\\ \hline
+Trigger & $3 \\\ \hline
+Prerequisites & $4 \\\ \hline
+Postrequisites & $5 \\\ \hline
+Event Flow & $6 \\\ \hline
+Variation & $7 \\\ \hline
+Exception & $8 \\\ \hline
+Additional Information & $9 \\\ \hline
+\end{tabular}
+\end{table}
+endsnippet
+
+snippet ps "Problem statement" b
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|p{9cm}|}
+\hline
+The problem of & $1 \\\ \hline
+affects & $2 \\\ \hline
+the impact of which is & $3 \\\ \hline
+a successful solution would be & $4 \\\ \hline
+\end{tabular}
+\end{table}
+$0
+endsnippet
+
+snippet bf "Bold font" 
+\textbf{$1}$0
+endsnippet

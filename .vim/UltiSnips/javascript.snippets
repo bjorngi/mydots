@@ -1,0 +1,65 @@
+snippet 5f "Function"
+var $1 = function($2) {
+$0
+}${3:;}
+
+endsnippet
+
+snippet clog "Console log"
+console.log($1)${0:;}
+
+endsnippet
+
+snippet rac "React class" b
+var $1 = React.createClass({
+	render() {
+		return (
+		$0
+		);
+	}
+
+});
+module.exports = $1
+endsnippet
+
+snippet reqr "Require react" b
+var React = require('react');
+endsnippet
+
+snippet req "require" b
+var $1 = require('$2');
+$0
+endsnippet
+
+snippet 6f "Function ES6" b
+$1($2) {
+	$4
+}$3
+endsnippet
+
+snippet gis "getInitialState" b
+getInitialState() {
+	return {
+		$0
+	}
+},
+endsnippet
+
+snippet pt "Prop types"
+propTypes: {
+	//var: React.PropTypes.[array, bool, func, number, object, string]
+	$1: $2,	
+},$0
+endsnippet
+
+snippet cwm "Compoent will mount" b
+componentWillMount() {
+	$0
+},
+endsnippet
+
+snippet ptr "React.PropTypes" b
+$1: React.PropTypes.$2,
+$0
+endsnippet
+

@@ -1,0 +1,32 @@
+snippet deflang "Default lang" b
+{
+    'langid': $1,
+	'variableid': $2,
+    'default': '$3',
+},
+$0
+endsnippet
+
+snippet langvar "Language variable" b
+{   
+	#$2
+    'variable': '$1',
+},
+$0
+endsnippet
+
+snippet loc "New loc" b
+    {
+		'id': $1,
+        'variable': '$2',
+        'defaults': {
+            'nb-NO': '$3',
+            'en-GB': '$4',
+        },
+    },
+$0
+endsnippet
+
+snippet doc "PyDoc" b
+""" $0 """
+endsnippet
