@@ -2,3 +2,4 @@
 *.log
 *.md.*
 *.css
+.vim/plugged/
