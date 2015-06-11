@@ -19,7 +19,6 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 Plugin 'sCRooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
@@ -33,7 +32,7 @@ Plugin 'jaxbot/github-issues.vim'
 Plugin 'klen/python-mode'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'https://github.com/mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
 
 let g:PreviewBrowsers='google-chrome-beta'
 
@@ -198,6 +197,7 @@ nnoremap <Leader>i <Plug>(easymotion-w)
 " Python
 let g:pymode_folding = 0
 let g:pep8_ignore="F403,E713,E266"
+au FileType python nnoremap <leader>t :!nosetests %:p<CR>
 
 
 " gVIM stuff

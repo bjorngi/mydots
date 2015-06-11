@@ -21,6 +21,10 @@ map <Leader>d :downloads<CR>
 " bookmark open
 map <Leader>a :bmarks! -T arch<CR>
 
+" nab navigation
+nmap <C-j> :tabnext<CR>
+nmap <C-k> :tabprevious<CR>
+
 " faster scrolling
 nnoremap h 5h
 nnoremap j 5j
