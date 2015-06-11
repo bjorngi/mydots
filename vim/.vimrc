@@ -16,7 +16,6 @@ Plugin 'fatih/vim-go'
 Plugin 'sjl/gundo.vim'
 Plugin 'Shougo/neocomplcache'
 Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sCRooloose/syntastic'
@@ -33,6 +32,7 @@ Plugin 'klen/python-mode'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-surround'
 
 let g:PreviewBrowsers='google-chrome-beta'
 
@@ -197,7 +197,8 @@ nnoremap <Leader>i <Plug>(easymotion-w)
 " Python
 let g:pymode_folding = 0
 let g:pep8_ignore="F403,E713,E266"
-au FileType python nnoremap <leader>t :!nosetests %:p<CR>
+au FileType python nnoremap <leader>t :!nosetests -s %:p<CR>
+au FileType python nnoremap <leader>r :!python %:p<CR>
 
 
 " gVIM stuff
