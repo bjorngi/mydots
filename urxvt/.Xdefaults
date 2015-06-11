@@ -95,3 +95,6 @@ URxvt.pointerBlank:         true
 !! white dark/light
 *color7: #eee8d5
 *color15: #fdf6e3
+
+!! CTRL-TAB
+URxvt.keysym.Control-Tab: \033[27;5;9~
