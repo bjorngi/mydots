@@ -92,10 +92,10 @@ map <leader>wc ;wincmd q<CR>
 map <leader>wr <C-W>r
 
 " Resize windows
-nmap <C-Left> ;3wincmd <<CR>
-nmap <C-Right> ;3wincmd ><CR>
-nmap <C-Up> ;3wincmd +<CR>
-nmap <C-Down> ;3wincmd -<CR>
+nmap <C-Left> ;wincmd <<CR>
+nmap <C-Right> ;wincmd ><CR>
+nmap <C-Up> ;wincmd +<CR>
+nmap <C-Down> ;wincmd -<CR>
 map <leader>h ;wincmd H<CR>
 map <leader>k ;wincmd K<CR>
 map <leader>l ;wincmd L<CR>
