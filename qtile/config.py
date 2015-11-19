@@ -7,8 +7,8 @@
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
-from libqtile.widget.ping import Ping
-from libqtile.widget.wlan import Wlan
+#from libqtile.widget.ping import Ping
+#from libqtile.widget.wlan import Wlan
 import subprocess,re,glob,os,random
 import multiprocessing as mp
 
@@ -42,13 +42,13 @@ screens = [Screen(top = bar.Bar([
         widget.Backlight(foreground="ff3300"),
         widget.sep.Sep(foreground='7b5830'),
         widget.Systray(),
-        widget.Clock('%H:%M', foreground='00ff00'),
+        #widget.Clock('%H:%M', foreground='00ff00'),
         widget.sep.Sep(foreground='7b5830'),
-        Ping(word='ping',foreground="7070ff"),
-        Ping(word='mem',foreground="7070ff"),
-        Ping(word='cpu',foreground="7070ff"),
+        #Ping(word='ping',foreground="7070ff"),
+        #Ping(word='mem',foreground="7070ff"),
+        #Ping(word='cpu',foreground="7070ff"),
         widget.sep.Sep(foreground='7b5830'),
-        Wlan(foreground="ff3300")
+        #Wlan(foreground="ff3300")
     ], 22, opacity=0.1)),
 
     Screen(top = bar.Bar([
@@ -59,17 +59,14 @@ screens = [Screen(top = bar.Bar([
         widget.CurrentLayout(foreground='7b5830'),
         widget.sep.Sep(foreground='7b5830'),
         widget.Systray(),
-        widget.Clock('%H:%M', foreground='00ff00'),
+        #widget.Clock('%H:%M', foreground='00ff00'),
     ], 22, opcacity=0.1)) ]
 
 # Super_L (the Windows key) is typically bound to mod4 by default, so we use
 # that here.
 mod = "mod4"
-terminal = "mate-terminal"
-y = subprocess.call(terminal+' 2> /dev/null',shell=True)
-if y != 0: terminal = "gnome-terminal"
+terminal = "urxvt"
 home = os.path.expanduser("~")
-print home
 
 
 # The keys variable contains a list of all of the keybindings that qtile will
@@ -95,7 +92,7 @@ keys = [
     Key([mod, "shift"], "Return",lazy.layout.toggle_split()),
 
     # change the layout
-    Key([mod], "j", lazy.nextlayout()),
+    Key([mod], "space", lazy.nextlayout()),
 
     # quit the program "qtile way"
     Key([mod], "c", lazy.window.kill()),
@@ -109,12 +106,12 @@ keys = [
     Key([mod], "g", lazy.switchgroup()),
 
     # start specific apps
-    Key([mod], "e", lazy.spawn("google-chrome")),
+    Key([mod], "q", lazy.spawn("firefox")),
 
     Key([mod], "Return", lazy.spawn(terminal)),
-    Key([mod,'shift'], "Return", lazy.spawn(terminal+" -x mosh syrric")),
-    Key([mod,'control'], "Return", lazy.spawn(terminal+"-x ssh drift2")),
-    Key(['mod1'], "Return", lazy.spawn(terminal+" -x mosh flash")),
+    #Key([mod,'shift'], "Return", lazy.spawn(terminal+" -x mosh syrric")),
+    #Key([mod,'control'], "Return", lazy.spawn(terminal+"-x ssh drift2")),
+    #Key(['mod1'], "Return", lazy.spawn(terminal+" -x mosh flash")),
     #Key([mod], "1", lazy.spawn("uzbl-tabbed")),
     #Key([mod], "2", lazy.spawn("firefox")),
     #Key(["control", "mod1"],"t", lazy.spawn("mate-terminal")),
@@ -157,9 +154,6 @@ keys = [
     # for Tile layout
     Key([mod, "shift"], "i", lazy.layout.increase_ratio()),
     Key([mod, "shift"], "d", lazy.layout.decrease_ratio()),
-
-    # take screenshot
-    # you have to click the window or drag and draw the region to snap
 ]
 
 
@@ -175,7 +169,7 @@ mouse = [
 # Next, we specify group names, and use the group name list to generate an appropriate
 # set of bindings for group switching.
 groups = []
-for i in ["a", "s", "d", "f", "u", "i", "o", "p"]:
+for i in ["1", "2", "3", "4", "5", "6", "7", "8"]:
     groups.append(Group(i))
     # add some more key bindigns
     # go to a specific screen
@@ -245,12 +239,13 @@ def execute_once(process):
     if not is_running(process):
         return subprocess.Popen(process.split())
 
-def rand_backround():
-  files = glob.glob(home+"/backrounds/*")
-  return files[random.randint(0,len(files)-1)]
+#def rand_backround():
+#  files = glob.glob(home+"/backrounds/*")
+#  return files[random.randint(0,len(files)-1)]
 
 @hook.subscribe.startup
 def autostart():
-    execute_once('feh --bg-fill %s'%(rand_backround()))
-    os.chdir(home)
+    pass    
+    #execute_once('feh --bg-fill %s'%(rand_backround()))
+    #os.chdir(home)
 
