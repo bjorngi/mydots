@@ -13,9 +13,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
-Plug 'farseer90718/vim-taskwarrior'
 Plug 'nvie/vim-flake8'
 Plug 'nono/vim-handlebars'
+Plug 'scrooloose/syntastic'
 
 
 call plug#end()
@@ -58,27 +58,31 @@ imap <BS> <C-W>
 imap <C-BS> <C-W>
 
 
-let mapleader = " "	" set <Leader> to space
-nmap <Leader>n ;NERDTreeToggle<CR>	" NERDTree <space>n in normal mode.
-nmap <Leader>b ;TagbarToggle<CR>
-nmap <Leader>p ;CtrlP<CR>
-map <F12> ;noh<CR>
-map <F7> ;Gstatus<CR>
-map <F8> ;Gdiff<CR>
-map <F9> ;Gpull<CR>
-map <F10> ;Gpush<CR>
-map <F11> ;Gissues<CR>
+let mapleader = " "
+nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>b :CtrlPTag<CR>
+nmap <leader>p :CtrlP<CR>
+noremap <F12> :noh<CR>
+nnoremap <F7> :Gstatus<CR>
+nnoremap <F8> :Gdiff<CR>
+nnoremap <F9> :Gpull<CR>
+nnoremap <F10> :Gpush<CR>
+nnoremap <F11> :Gissues<CR>
 
 
-nmap <leader>sd ;source $VIMRC<CR>
-nmap <leader>i ;vsplit <CR> ;term <CR>
+nmap <leader>sd :source $VIMRC<CR>
+nmap <leader>i :vsplit<CR>:terminal<CR>
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
 
 " Tab management
-nmap <F4> ;tabnew<CR>
-nmap <F1> 1gt
-nmap <F2> 2gt
-nmap <F3> 3gt
-nmap <Leader>u ;UndotreeToggle<CR>;UndotreeFocus<CR>
+nnoremap <F5> :tabnew<CR>
+nnoremap <F1> 1gt
+nnoremap <F2> 2gt
+nnoremap <F3> 3gt
+nnoremap <F4> 4gt
+nmap <Leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
 " Easier movement between windows
 nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>
@@ -88,18 +92,18 @@ nnoremap <C-h> <C-W><C-H>
 set splitbelow
 set splitright
 " Window close and rotate
-map <leader>wc ;wincmd q<CR>
+map <leader>wc :wincmd q<CR>
 map <leader>wr <C-W>r
 
 " Resize windows
-nmap <C-Left> ;3wincmd <<CR>
-nmap <C-Right> ;3wincmd ><CR>
-nmap <C-Up> ;3wincmd +<CR>
-nmap <C-Down> ;3wincmd -<CR>
-map <leader>h ;wincmd H<CR>
-map <leader>k ;wincmd K<CR>
-map <leader>l ;wincmd L<CR>
-map <leader>j ;wincmd J<CR>
+map <M-h> :3wincmd<<CR>
+map <M-l> :3wincmd><CR>
+map <M-j> :3wincmd+<CR>
+map <M-k> :3wincmd-<CR>
+map <leader>h :wincmd H<CR>
+map <leader>k :wincmd K<CR>
+map <leader>l :wincmd L<CR>
+map <leader>j :wincmd J<CR>
 
 
 "Spelling
@@ -107,13 +111,11 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType md setlocal spell
 autocmd BufNewFile,BufReadPost *.tmp setlocal spell
 
-nmap <left> [s " Previous wrong word
-nmap <right> ]s " Next wrong word
-nmap <up> 1z= " Change to first correction
-nmap <down> z= " Show corrections
+"nmap <left> [s " Previous wrong word
+"nmap <right> ]s " Next wrong word
+"nmap <up> 1z= " Change to first correction
+"nmap <down> z= " Show corrections
 
-" Taskwarrior
-"noremap <leader>z ;TW<CR>
 
 " Omnifunc
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -136,13 +138,13 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsListSnippets = "<c-tab>"
 
-nmap <leader>v ;UltiSnipsEdit<CR>GG
+nmap <leader>v :UltiSnipsEdit<CR>GG
 
 " Typing
 au BufRead,BufNewFile *.txt,*.tex set wrap linebreak nolist textwidth=0 wrapmargin=0
 
 " Open links in vim
-nmap <leader>o ;call HandleURL()<CR>
+nmap <leader>o :call HandleURL()<CR>
 function! HandleURL()
 let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
 echo s:uri
@@ -152,12 +154,4 @@ else
   echo "No URI found in line."
 endif
 endfunction
-map <leader>o ;call HandleURL()<cr>
-
-
-""" Keymappings ( http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_%28Part_1%29 )
-nnoremap : ; " Onepress for :
-nnoremap ; :
-
-vnoremap : ; " Onepress for :
-vnoremap ; :
+map <leader>o :call HandleURL()<cr>
