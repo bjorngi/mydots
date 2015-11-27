@@ -2,4 +2,4 @@
 *.log
 *.md.*
 *.css
-.vim/plugged/
+plugged/
