@@ -105,7 +105,6 @@ map <leader>k :wincmd K<CR>
 map <leader>l :wincmd L<CR>
 map <leader>j :wincmd J<CR>
 
-
 "Spelling
 autocmd FileType gitcommit setlocal spell
 autocmd FileType md setlocal spell

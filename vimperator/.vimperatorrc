@@ -1,5 +1,5 @@
-set gui=none,tabs
-set hintchars=asdfghjkl
+set gui=none
+set hintchars=asdfghjklertyuicvbnm
 highlight Hint font-size:75%;color:white;background-color:blue;padding:2px;
 
 " Simulate CTRL-A
@@ -13,10 +13,11 @@ set animations
 
 
 " leader key
-map , <Leader>
+map " " <Leader>
 
 " keybindings
 map <Leader>d :downloads<CR>
+
 
 " bookmark open
 map <Leader>a :bmarks! -T arch<CR>
@@ -30,6 +31,11 @@ nnoremap h 5h
 nnoremap j 5j
 nnoremap k 5k
 nnoremap l 5l
+
+nnoremap <F12> :noh<CR>
+
+map ; :
+map : ;
 
 nmap <A-j> :set! extensions.treestyletab.tabbar.autoHide.mode=2<CR>
 nmap <A-k> :set! extensions.treestyletab.tabbar.autoHide.mode=1<CR>
