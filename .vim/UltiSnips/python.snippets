@@ -28,5 +28,20 @@ $0
 endsnippet
 
 snippet doc "PyDoc" b
-""" $0 """
+"""
+$1
+""" $0
+endsnippet
+
+snippet p "Print" b
+print($1)   # DEBUG PRINT
+endsnippet
+
+snippet db "Debugger" b
+############ DEBUGGER ############
+import pdb; pdb.set_trace()
+endsnippet
+
+snippet hit "Print hit" b
+print("HIT")  # DEBUG PRINT
 endsnippet

@@ -23,7 +23,7 @@ module.exports = $1
 endsnippet
 
 snippet reqr "Require react" b
-var React = require('react');
+import { React } from 'react';
 endsnippet
 
 snippet req "require" b
@@ -63,3 +63,69 @@ $1: React.PropTypes.$2,
 $0
 endsnippet
 
+snippet db "Debugger" 
+/*jshint -W087 */
+debugger;
+/*jshint +W087 */
+endsnippet
+
+
+# JSDoc snippets
+snippet / "A JSDoc comment" b
+/**
+ * ${1:${VISUAL}}$0
+ */
+endsnippet
+
+
+snippet @ver "@version Semantic version"
+@version ${1:0.1.0}$0
+endsnippet
+
+snippet @fileo "@fileoverview Description" b
+/**
+ * @fileoverview ${1:${VISUAL:A description of the file}}$0
+ * @author Bjørn Gilstad (@bjorngi) bjorn@skylabs.no
+ */
+endsnippet
+
+snippet @constr "@constructor"
+@constructor
+endsnippet
+
+snippet @auth "@author" b
+@author
+
+endsnippet
+
+snippet @p "@param {Type} varname Description"
+@param {${1:Type}} ${2:varname} ${3:Description}
+endsnippet
+
+snippet @r "@return {Type} Description"
+@returns {${1:Type}} ${2:Description}
+endsnippet
+
+snippet @pri "@private"
+@private
+endsnippet
+
+snippet @over "@override"
+@override
+endsnippet
+
+snippet @pro "@protected"
+@protected
+endsnippet
+
+snippet @ty "@type" 
+@type {$1} $0
+endsnippet
+
+snippet // "Description" b
+/** $0 **/
+endsnippet
+
+snippet hit "HIT"
+console.log("HIT"); // DEBUG PRINT
+endsnippet
