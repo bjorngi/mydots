@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/bjorn/skylabs/openwifi-admin-frontend/app'
+let g:netrw_dirhist_2='/home/bjorn/skylabs/openwifi-admin-frontend/app/modules'
+let g:netrw_dirhist_3='/home/bjorn/.config/bspwn'
+let g:netrw_dirhist_4='/usr/share/doc/bspwm/examples/overlapping_borders'
+let g:netrw_dirhist_5='/home/bjorn/.config/bspwm'
