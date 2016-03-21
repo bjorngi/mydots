@@ -31,7 +31,7 @@ URxvt.lineSpace:            0
 URxvt.allow_bold:           true
 /* URxvt.font:
    -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt.font: xft:Inconsolata-g for Powerline:size=12
+URxvt*font: xft:Inconsolata-g for Powerline:size=12,
 URxvt*boldFont: xft:Inconsolata-g for Powerline:semibold:size=12
 
 ! Fix font space
