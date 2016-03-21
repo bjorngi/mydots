@@ -129,3 +129,17 @@ endsnippet
 snippet hit "HIT"
 console.log("HIT"); // DEBUG PRINT
 endsnippet
+
+snippet it "IT test" b
+it('$1', () => {
+	$2
+});
+$0
+endsnippet
+
+snippet desc "Describe test" b
+describe('$1', () => {
+	$2
+});
+$0
+endsnippet
