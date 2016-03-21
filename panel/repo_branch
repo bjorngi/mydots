@@ -1,0 +1,33 @@
+#!/bin/sh
+. panel_colors
+
+repositories=(
+"/home/bjorn/skylabs/openwifi-admin-api"
+"/home/bjorn/skylabs/openwifi-admin-frontend"
+"/home/bjorn/skylabs/openwifi-lib"
+"/home/bjorn/skylabs/openwifi-api"
+"/home/bjorn/skylabs/openwifi-portal"
+)
+
+while true;
+do
+  stat=""
+  for i in "${repositories[@]}"
+  do
+    cd $i;
+    repository=$(basename `git rev-parse --show-toplevel`);
+    changed=$(git status --porcelain 2>/dev/null| egrep "^(M| M)" | wc -l)
+    new=$(git ls-files . --exclude-standard --others | wc -l)
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    totalchange=$(($changed + $new))
+
+    if test $totalchange -gt 0;
+    then
+      stat=$stat"%{F$COLOR_GIT_DIRTY}$repository%{F$COLOR_SYS_FG} [$branch](New: $new: Changed:$changed)    " > "$PANEL_FIFO"
+    else
+      stat=$stat"%{F$COLOR_GIT_CLEAN}$repository%{F$COLOR_SYS_FG} [$branch]    " > "$PANEL_FIFO"
+    fi
+  done
+  echo "T$stat" > "$PANEL_FIFO"
+  sleep 5;
+done
