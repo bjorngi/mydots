@@ -2,3 +2,4 @@ clear Lock
 keycode  9  = Caps_Lock NoSymbol Caps_Lock
 keycode  47 = colon semicolon semicolon colon
 keycode  66 = Escape NoSymbol Escape
+keycode  94 = BackSpace
