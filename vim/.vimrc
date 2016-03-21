@@ -10,12 +10,12 @@ Plug 'mxw/vim-jsx'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'nvie/vim-flake8'
 Plug 'nono/vim-handlebars'
 Plug 'scrooloose/syntastic'
+Plug 'ternjs/tern_for_vim'
 
 
 call plug#end()
@@ -45,6 +45,7 @@ noremap <Esc> <c-\><c-n>
 " Nerdtree
 let NERDTreeQuitOnOpen=1 " Close NERDTree on opening file
 let NERDTreeIgnore = ['\.pyc$', '\.swp$']
+let NERDTreeshowlinenumbers=1
 
 " Move on wrapped lines
 vnoremap <silent> j gj
@@ -60,8 +61,6 @@ imap <C-BS> <C-W>
 
 let mapleader = " "
 nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>b :CtrlPTag<CR>
-nmap <leader>p :CtrlP<CR>
 noremap <F12> :noh<CR>
 nnoremap <F7> :Gstatus<CR>
 nnoremap <F8> :Gdiff<CR>
@@ -118,7 +117,7 @@ autocmd BufNewFile,BufReadPost *.tmp setlocal spell
 
 " Omnifunc
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
