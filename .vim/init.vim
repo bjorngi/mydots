@@ -1,1 +1,1 @@
-../../mydots/vim/.vimrc
+/home/bjorn/mydots/vim/init.vim
