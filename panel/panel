@@ -1,4 +1,6 @@
 #! /bin/sh
+. ~/mydots/panel/panel_colors
+. ~/mydots/panel/profile
 
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
 	printf "%s\n" "The panel is already running." >&2
@@ -16,7 +18,6 @@ bspc subscribe report > "$PANEL_FIFO" &
 while true; do date +"S%H:%M"> "$PANEL_FIFO"; sleep 10; done &
 
 
-. panel_colors
 
 panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
