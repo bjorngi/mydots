@@ -7,7 +7,6 @@ Plug 'SirVer/ultisnips'
 Plug 'mbbill/undotree'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
@@ -38,7 +37,6 @@ set undofile
 set undodir=~/.vimundo " make ~/.vimundo to store undo history
 set nowritebackup
 
-colorscheme solarized
 filetype indent on
 noremap <Esc> <c-\><c-n>
 
