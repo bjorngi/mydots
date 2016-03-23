@@ -1,6 +1,6 @@
 set gui=none
 set hintchars=asdfghjklertyuicvbnm
-highlight Hint font-size:75%;color:white;background-color:blue;padding:2px;
+highlight Hint font-size:100%;color:white;background-color:blue;padding:1px;
 
 " Simulate CTRL-A
 inoremap <C-a> <C-Home><C-S-End>
