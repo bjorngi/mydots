@@ -2,7 +2,7 @@
 #
 # Example panel for lemonbar
 
-. panel_colors
+. ~/mydots/panel/panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 printf "TEST"
