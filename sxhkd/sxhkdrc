@@ -170,3 +170,15 @@ super + q
 
 super + x
   slimlock
+
+XF86Audio{Raise,Lower}Volume
+  volnoti-volume {4+,4-}
+
+XF86AudioMute
+  volnoti-mute
+
+
+XF86MonBrightness{Down,Up}
+  xbacklight {-dec,-inc} 10; \
+  volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(xbacklight -get)
+
