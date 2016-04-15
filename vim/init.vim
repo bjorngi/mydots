@@ -38,7 +38,6 @@ set undofile
 set undodir=~/.vimundo " make ~/.vimundo to store undo history
 set nowritebackup
 
-colorscheme solarized
 filetype indent on
 noremap <Esc> <c-\><c-n>
 
