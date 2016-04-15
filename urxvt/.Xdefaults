@@ -72,10 +72,18 @@ URxvt.keysym.Control-Tab: \033[27;5;9~
  URxvt.color6:      #66cccc
  URxvt.color7:      #515151
  URxvt.color8:      #666666
- URxvt.color9:      #FF3334
- URxvt.color10:     #9ec400
- URxvt.color11:     #ffcc66
- URxvt.color12:     #6699cc
- URxvt.color13:     #b777e0
- URxvt.color14:     #54ced6
- URxvt.color15:     #393939
+ URxvt.color9:      #cc6666
+ URxvt.color10:     #b5bd68
+ URxvt.color11:     #f0c674
+ URxvt.color12:     #81a2be
+ URxvt.color13:     #b294bb
+ URxvt.color14:     #8abeb7
+ URxvt.color15:     #ecebec
+
+
+ !! Set fontsize
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+
