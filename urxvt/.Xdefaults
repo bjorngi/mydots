@@ -31,8 +31,8 @@ URxvt.lineSpace:            0
 URxvt.allow_bold:           true
 /* URxvt.font:
    -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Inconsolata-g for Powerline:size=12,
-URxvt*boldFont: xft:Inconsolata-g for Powerline:semibold:size=12
+URxvt*font: xft:droid sans mono:size=11,
+URxvt*boldFont: xft:droid sans mono:semibold:size=11
 
 ! Fix font space
 URxvt*letterSpace: -1
@@ -60,17 +60,17 @@ URxvt.keysym.Control-Tab: \033[27;5;9~
 
 
 ! ! Tomorrow Night
- URxvt.foreground:  #c5c8c6
- URxvt.background:  #1d1f21
+ URxvt.foreground:  #cccccc
+ URxvt.background:  #2d2d2d
  URxvt.cursorColor: #aeafad
  URxvt.color0:      #000000
- URxvt.color1:      #912226
- URxvt.color2:      #778900
- URxvt.color3:      #ae7b00
- URxvt.color4:      #1d2594
- URxvt.color5:      #682a9b
- URxvt.color6:      #2b6651
- URxvt.color7:      #929593
+ URxvt.color1:      #f2777a
+ URxvt.color2:      #99cc99
+ URxvt.color3:      #f99157
+ URxvt.color4:      #6699cc
+ URxvt.color5:      #cc99cc
+ URxvt.color6:      #66cccc
+ URxvt.color7:      #515151
  URxvt.color8:      #666666
  URxvt.color9:      #cc6666
  URxvt.color10:     #b5bd68
@@ -86,3 +86,4 @@ URxvt.keysym.C-Up:     font-size:increase
 URxvt.keysym.C-Down:   font-size:decrease
 URxvt.keysym.C-S-Up:   font-size:incglobal
 URxvt.keysym.C-S-Down: font-size:decglobal
+
