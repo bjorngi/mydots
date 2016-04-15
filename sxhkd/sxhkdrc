@@ -9,6 +9,7 @@ super + Return
 super + space
 	dmenu_run
 
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -170,3 +171,16 @@ super + q
 
 super + x
   slimlock
+
+super + e
+  twmnc -t "Keybaord layout:" -c "English"; \
+  setxkbmap us; \
+  xmodmap /home/bjorn/.Xmodmap
+
+super + n
+  twmnc -t "Keybaord layout:" -c "Norwegian"; \
+  setxkbmap no; \
+  xmodmap /home/bjorn/mydots/.Xmodmap-no
+
+  
+
