@@ -30,7 +30,8 @@ endsnippet
 snippet doc "PyDoc" b
 """
 $1
-""" $0
+"""
+$0
 endsnippet
 
 snippet p "Print" b
@@ -44,4 +45,53 @@ endsnippet
 
 snippet hit "Print hit" b
 print("HIT: $1")  # DEBUG PRINT$0
+endsnippet
+
+snippet todo "Add todo" b
+# TODO: ${1:desc} (`!p
+from datetime import datetime
+snip.rv = datetime.now().strftime('%Y-%m-%d')
+`) by bjorn
+endsnippet
+
+snippet doca "Document api" b
+apidoc_$1 = (
+    {'inputs': [
+        {
+	  $2
+		}
+		],
+     'examples': [
+         {
+             'request': json.dumps({$3}),
+             'response': json.dumps({$4})
+         }]
+     })$0
+endsnippet
+
+snippet doci "ApiDoc input" b
+
+endsnippet
+
+snippet docar "ApiDoc argument" b
+{
+    'arg': '$1',
+    'default': '$2',
+    'desc': '$3',
+}$0
+endsnippet
+
+
+snippet exp "Custom exception" b
+class $1(CustomException):
+    description = ('$2')
+    error = '$3'
+    http_code = $4
+
+
+$0
+endsnippet
+
+snippet iexp "Import exception" b
+from openwifi.exceptions.template import CustomException
 endsnippet

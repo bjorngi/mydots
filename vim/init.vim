@@ -13,8 +13,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'nvie/vim-flake8'
 Plug 'nono/vim-handlebars'
-Plug 'scrooloose/syntastic'
-Plug 'ternjs/tern_for_vim'
+Plug 'aklt/plantuml-syntax'
 
 
 call plug#end()
@@ -52,10 +51,6 @@ vnoremap <silent> k gk
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
-
-" Backspace
-imap <BS> <C-W>
-imap <C-BS> <C-W>
 
 
 let mapleader = " "
@@ -152,3 +147,12 @@ else
 endif
 endfunction
 map <leader>o :call HandleURL()<cr>
+
+autocmd InsertChange,TextChanged * update | Neomake! arclint
+
+let g:neomake_logfile='/tmp/error.log'
+
+let g:neomake_arclint_maker = {
+  \ 'exe': 'arc',
+  \ 'args': ['lint', '--output', 'compiler', '%:p'],
+\}

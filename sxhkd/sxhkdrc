@@ -175,7 +175,7 @@ super + x
 super + e
   twmnc -t "Keybaord layout:" -c "English"; \
   setxkbmap us; \
-  xmodmap /home/bjorn/.Xmodmap
+  #xmodmap /home/bjorn/.Xmodmap
 
 super + n
   twmnc -t "Keybaord layout:" -c "Norwegian"; \

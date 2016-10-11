@@ -143,3 +143,23 @@ describe('$1', () => {
 });
 $0
 endsnippet
+
+snippet p "Console log info" b
+console.info("HIT: $0") // DEBUG PRINT
+endsnippet
+
+snippet lss "LocalStorage" i
+localStorage.setItem('$1', $2);$0
+endsnippet
+
+
+snippet lsg "LocalStorage" i
+localStorage.getItem('$1')$0
+endsnippet
+
+snippet todo "Add a todo text" b
+// TODO: ${1:desc} (`!p
+from datetime import datetime
+snip.rv = datetime.now().strftime('%Y-%m-%d')
+`) by bjorn
+endsnippet
